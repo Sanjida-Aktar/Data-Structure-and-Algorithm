@@ -1,5 +1,5 @@
-#include<iostream>
-#include<queue>
+// #include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 class Student{
     public:
@@ -12,12 +12,12 @@ int main(){
      priority_queue<Student>pq;
 
      int n;
-     cout<<"Enter the number of students: ";
+     // cout<<"Enter the number of students: ";
      cin>>n;
      string name;
      int id, marks;
      for(int i = 0; i < n; i++){
-         cout<<"Enter name, ID, and marks for student "<<i+1<<": ";
+         // cout<<"Enter name, ID, and marks for student "<<i+1<<": ";
          cin>>name>>id>>marks;
          pq.push(Student(name, id, marks));
      }
