@@ -7,15 +7,13 @@ int main(){
      for(int i=0; i<n; i++){
         cin>>a[i];
      }
-bool flag=0;
-     for(int i=0; i<n; i++){
-        int j=n-1;
-        cout<<a[i]<< "="<< a[j]<<endl;
-        if(a[i]==a[j]){
-            flag=1;
+     sort(a.begin(), a.end());
+     bool flag=0;
+     for(int i=1; i<n; i++){
+        if(a[i]==a[i-1]){
+            flag =1;
             break;
         }
-        j--;
      }
      if(flag==0){
         cout<<"NO"<<endl;
