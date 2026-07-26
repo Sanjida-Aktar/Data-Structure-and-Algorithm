@@ -6,22 +6,25 @@ class myStack{
     list<int>l;
 
     void push(int val){
-        l.push_back(val);
+        return l.push_back(val);
     }
     void pop(){
-        l.pop_front();
+        return l.pop_front();
     }
     int top(){
-        l.back();
+        return l.back();
     }
     bool empty(){
-        l.empty();
+       return l.empty();
     }
-}
+};
 int main(){
      myStack st;
      st.push(15);
+     st.push(50);
      if(!st.empty())
-     cout<<st.top;
+     {
+     cout<<st.top();
+    }
     return 0;
 }
