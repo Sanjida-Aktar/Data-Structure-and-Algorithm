@@ -22,7 +22,7 @@ int main(){
         return 0;
      }
      while(!v1.empty()){
-        if(v1.front() != v2.back()){
+        if(v1.back() != v2.front()){
             cout<<"NO"<<endl;
             return 0;
         }
