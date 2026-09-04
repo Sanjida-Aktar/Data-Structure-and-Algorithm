@@ -5,16 +5,26 @@ bool vis[1005];
 
 void bfs(int src)
 {
+
+    int sum = 0;
     queue<int>q;
     q.push(src);
+    vis[src]=true;
 
     while(!q.empty()){
         int par = q.front();
         q.pop();
+        sum += par;
         cout<<par<<" ";
-        adj_list[par ]
+        for(int child : adj_list[par]){
+            if(vis[child]== false){
+            q.push(child);
+            vis[child]= true;
+        }
+    }
          
     }
+    cout << "Sum: " << sum << endl;
 }
 int main(){
      int n,e;
@@ -24,7 +34,7 @@ int main(){
         int a,b;
         cin>>a>>b;
         adj_list[a].push_back(b);
-        adj_list[b].pop_back(a);
+        adj_list[b].push_back(a);
         /* code */
      }
      bfs(0);
