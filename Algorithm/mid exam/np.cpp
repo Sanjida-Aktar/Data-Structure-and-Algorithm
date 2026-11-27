@@ -1,41 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int parent[100005];
-
-int find(int x) {
-    if (parent[x] == x)
-        return x;
-
-    return parent[x] = find(parent[x]);
-}
-
 int main() {
-    int n, m;
-    cin >> n >> m;
+    int t;
+    cin >> t;
 
-    for (int i = 1; i <= n; i++) {
-        parent[i] = i;
-    }
+    while (t--) {
+        int n;
+        cin >> n;
 
-    int count = 0;
+        vector<int> h(n);
 
-    for (int i = 0; i < m; i++) {
-        int u, v;
-        cin >> u >> v;
-
-        int pu = find(u);
-        int pv = find(v);
-
-        if (pu == pv) {
-            count++;
+        for (int i = 0; i < n; i++) {
+            cin >> h[i];
         }
-        else {
-            parent[pu] = pv;
-        }
-    }
 
-    cout << count << endl;
+        int left = 0, right = n - 1;
+        int mx = 0, ansL = 0, ansR = 0;
+
+        while (left < right) {
+            int water = (right - left) * min(h[left], h[right]);
+
+            if (water > mx) {
+                mx = water;
+                ansL = left;
+                ansR = right;
+            }
+
+            if (h[left] < h[right]) {
+                left++;
+            }
+            else {
+                right--;
+            }
+        }
+
+        cout << ansL << " " << ansR << endl;
+    }
 
     return 0;
 }
