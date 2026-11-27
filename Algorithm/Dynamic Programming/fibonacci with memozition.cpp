@@ -1,8 +1,18 @@
 #include<bits/stdc++.h>
 using namespace std;
+long long dp[1005];
+long long fibo(long long n){
+    if(n<2)
+        return n;
+    if(dp[n]!=-1)
+        return dp[n];
+    dp[n]=fibo(n-1)+fibo(n-2);
+    return dp[n];
+}
 int main(){
-        int n;
+    memset(dp,-1,sizeof(dp));
+        long long n;
         cin>>n;
-        cout<<factorial(n);
+        cout<<fibo(n);
     return 0;
 }
